@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DFA/NFA Visualizer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js"></script>
+</body>
+</html>
+  </head>
+  <body>
+    <h1>DFA/NFA Visualizer</h1>
+
+    <div class="main-container">
+      <div class="input-area">
+        <h2>Automaton Definition</h2>
+        
+        <div class="input-group">
+          <label>Type:</label>
+          <input type="radio" name="automatonType" value="DFA" id="dfaRadio" checked />
+          <label for="dfaRadio" style="display: inline; margin-right: 10px;">DFA</label>
+          
+          <input type="radio" name="automatonType" value="NFA" id="nfaRadio" />
+          <label for="nfaRadio" style="display: inline;">NFA</label>
+        </div>
+
+        <label for="statesInput">States (comma-separated):</label>
+        <input type="text" id="statesInput" placeholder="e.g. q0, q1, q2" value="" />
+
+        <label for="alphabetInput">Alphabet (comma-separated):</label>
+        <input type="text" id="alphabetInput" placeholder="e.g. 0, 1" value="" />
+
+        <label for="startStateInput">Start State:</label>
+        <input type="text" id="startStateInput" placeholder="e.g. q0" value="" />
+
+        <label for="acceptStatesInput">Accept States (comma-separated):</label>
+        <input type="text" id="acceptStatesInput" placeholder="e.g. q2" value="" />
+
+        <label for="transitionsInput">
+          Transitions (e.g. q0,0->q0; q0,1->q1;):
+        </label>
+        <textarea id="transitionsInput" rows="5" placeholder="state,symbol->nextState;"></textarea>
+
+        <label for="stringInput">Input String to Test:</label>
+        <input type="text" id="stringInput" placeholder="e.g. 1011" value="" />
+
+        <div class="button-group">
+          <button id="loadAndRunBtn">Load & Run</button>
+          <button id="resetBtn" style="background-color: #e74c3c;">Reset</button>
+        </div>
+
+        <p id="statusMessage" class="status"></p>
+      </div>
+
+      <div class="output-area">
+        <h2>Visualization & Output</h2>
+
+        <div class="transition-table-container">
+          <h3>Transition Table</h3>
+          <table id="transitionTable">
+            </table>
+        </div>
+
+        <div class="visualization-container">
+          <h3>State Diagram</h3>
+          <canvas id="automatonCanvas" width="600" height="350"></canvas>
+          
+          <div class="legend">
+            <div>
+              <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background-color: #f1c40f; border:1px solid #000;"></span>
+              Start State
+            </div>
+            <div>
+              <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background-color: #E0FFE0; border:2px double #000;"></span>
+              Accept State
+            </div>
+            <div>
+              <span style="display:inline-block; width:12px; height:12px; border-radius:50%; background-color: #FFFFFF; border:1px solid #000;"></span>
+              Regular State
+            </div>
+          </div>
+        </div>
+
+        <div class="simulation-output">
+          <h3>Simulation Result</h3>
+          <div id="simulationResult" style="white-space: pre-wrap; padding: 10px; background: #f9f9f9; border-radius: 4px; border-left: 5px solid #2ecc71;"></div>
+          <button id="loadAndRunBtn">Load & Run</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

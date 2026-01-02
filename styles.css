@@ -1,0 +1,226 @@
+/* --- Global Reset & Box Sizing --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --state-color: #3498db;
+    --start-state-color: #f1c40f;
+    --accept-state-color: #2ecc71;
+    --error-color: #e74c3c;
+    --transition-color: #34495e;
+    --bg-color: #f4f7f6;
+    --card-bg: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: var(--bg-color);
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+}
+
+/* --- Layout Structure --- */
+.main-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.input-area {
+    flex: 1; 
+    min-width: 350px; 
+    padding: 20px;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    background-color: #fdfdfd;
+}
+
+.output-area {
+    flex: 2; 
+    min-width: 450px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 25px; 
+}
+
+/* --- Form Elements --- */
+.input-group {
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid #eee;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+input[type="text"], 
+textarea {
+    width: 100%; 
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-family: 'Courier New', Courier, monospace; /* Monospaced for logic inputs */
+    font-size: 0.95rem;
+    transition: all 0.2s ease-in-out;
+}
+
+input[type="text"]:focus, 
+textarea:focus {
+    border-color: var(--state-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+    background-color: #fff;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+button {
+    flex: 1;
+    padding: 12px;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+#loadAndRunBtn {
+    background-color: var(--accept-state-color);
+}
+
+#loadAndRunBtn:hover {
+    background-color: #27ae60;
+}
+
+#resetBtn {
+    background-color: var(--error-color);
+}
+
+#resetBtn:hover {
+    background-color: #c0392b;
+}
+
+/* --- Table Styling --- */
+.transition-table-container {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+}
+
+th, td {
+    border: 1px solid #edf2f7;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #f8fafc;
+    color: #64748b;
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+/* --- Canvas & Visualization --- */
+.visualization-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 2px solid #f1f5f9;
+    border-radius: 10px;
+}
+
+#automatonCanvas {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #f1f5f9;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 10px;
+}
+
+.legend div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* --- Results Section --- */
+.simulation-output {
+    padding: 15px;
+    background-color: #f8fafc;
+    border-radius: 8px;
+}
+
+#simulationResult {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #2c3e50;
+    min-height: 50px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 800px) {
+    .main-container {
+        flex-direction: column;
+    }
+    
+    .input-area, .output-area {
+        width: 100%;
+        min-width: unset;
+    }
+}
